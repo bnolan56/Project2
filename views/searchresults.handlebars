@@ -1,0 +1,42 @@
+
+<table class="uk-table uk-table-striped uk-table-hover">
+  <thead>
+    <tr>
+      <th>Beer</th>
+      <th>Brewery</th>
+      <th>Style</th>
+      <th>ID</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+    {{#each beerName}}
+    <tr>
+      <td>{{this.beer_name}}</td>
+      <td>{{this.brewery_name}}</td>
+      <td>{{this.beer_style}}</td>
+      <td>{{this.id}}</td>
+    </tr>
+    {{/each}}
+
+    <!-- <tr>
+      <td>{{this.beer_name}}</td>
+      <td>{{this.brewery_name}}</td>
+      <td>{{this.beer_style}}</td>
+      <td>{{this.id}}</td>
+    </tr> -->
+  </tbody>
+</table>
+
+<ul class="uk-pagination uk-flex-center">
+  <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
+  <li><a href="#">1</a></li>
+  <li class="uk-disabled"><span>...</span></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">6</a></li>
+  <li class="uk-active"><span>7</span></li>
+  <li><a href="#">8</a></li>
+  <li><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
+</ul>
