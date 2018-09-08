@@ -8,6 +8,10 @@ router.get('/', function(req,res,next){
 
 router.get('/search', function(req,res){
     userchoice = "odell"+"%"
+    const info = {
+        beerName: [],
+        breweryName: []
+    }
     knex.select(
         'beer_name',
         'brewery_name',
@@ -15,8 +19,10 @@ router.get('/search', function(req,res){
         'id'
     ).from('beers').where('beer_name','like',userchoice).orWhere('beer_style', 'like', userchoice).orWhere('brewery_name', 'like', userchoice).limit(10)
     .then(function(test){
-        
-        res.send(test);
+        for (var i = 0; i <test.length; i++){
+            info.beerName.push(test[i]);
+        }
+        res.render('searchresults', info);
     })
   });
 
