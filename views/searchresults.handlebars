@@ -1,3 +1,4 @@
+<h4>Here are your results for "{{userInput}}"</h4>
 
 <table class="uk-table uk-table-striped uk-table-hover">
   <thead>
@@ -14,8 +15,8 @@
 
     {{#each beerName}}
     <tr>
-      <td>{{this.beer_name}}</td>
-      <td>{{this.brewery_name}}</td>
+      <td><a class="beerClick" href="/beer/:id">{{this.beer_name}}</a></td>
+      <td><a class="breweryClick" href="/brewery/:id">{{this.brewery_name}}</a></td>
       <td>{{this.beer_style}}</td>
       <td>{{this.id}}</td>
     </tr>

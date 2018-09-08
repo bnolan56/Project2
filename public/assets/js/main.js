@@ -1,12 +1,11 @@
 $(function() {
 
-  $(".uk-search-input").keyup("click", function (e) {
-  e.preventDefault();
-  if (e.which === 13) {
+  $("#Search").on("submit", function (e) {
+    e.preventDefault();
 
+    let userInput = $("#searchInput").val().trim();
+    console.log(userInput)
 
-      // code to run get Search route
-  }
+    window.location.href = "/search?userInput=" + encodeURI(userInput);
   });
-
 });

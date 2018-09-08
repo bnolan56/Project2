@@ -7,7 +7,9 @@ router.get('/', function(req,res,next){
 });
 
 router.get('/search', function(req,res){
-    userchoice = "odell"+"%"
+    userchoice = "%" + req.query.userInput + "%";
+
+    console.log(req.query.userInput)
     const info = {
         beerName: [],
         breweryName: []
@@ -38,7 +40,7 @@ router.get('/brewery/:id', function(req,res){
       'beer_name'
     ).from('beers')
       .then(function(test){
-          res.send(test)
+          res.render('brewery', test)
       })
   });
 
@@ -52,11 +54,11 @@ router.get('/brewery/:id', function(req,res){
         'beer_description',
         'beer_logo',
         'brewery_name',
-    ).from('beers').whereRaw('id=?',[beerid])
+    ).from('beers')
     .then(function(test){
-        res.send(test)
+        res.render('beer', test)
     })
 });
-  
+
 
 module.exports = router
