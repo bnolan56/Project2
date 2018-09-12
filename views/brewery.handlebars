@@ -1,29 +1,29 @@
-<!-- TEST LAYOUT OF INDEX TEMPLATE FOR TEST TABLE INFO -->
-<div class="uk-child-width-expand@s" uk-grid>
-  <div class="uk-grid-item-match">
-    <div class="uk-card uk-card-default uk-card-body">
-      <h3>Heading</h3>
-      <img src="{{this.brewery_pic}}" alt="Brewery Picture"/>
+<div class="uk-section">
+  <div class="uk-child-width-expand@s" uk-grid>
+    <div class="uk-grid-item-match">
+      <div class="uk-card uk-card-default uk-card-body">
+        <img src="{{this.brewery_pic}}" alt="Brewery Picture"/>
+      </div>
+     </div>
+    <div>
+      <h3>{{this.brewery_name}}</h3>
+      <ul class="uk-list">
+        <li>
+          Brewery Type: {{this.brewery_type}}
+        </li>
+
+        <li>
+          Website: {{this.brewery_website}}
+        </li>
+
+        <li>
+          Address: {{this.brewery_city}}, {{this.brewery_state}}
+        </li>
+      </ul>
+
+      <p>
+        {{this.info}}
+      </p>
     </div>
-   </div>
-  <div>
-    <h3>{{this.brewery_name}}</h3>
-    <ul>
-      <li>
-        Brewery Type: {{this.brewery_type}}
-      </li>
-
-      <li>
-        Website: {{this.brewery_website}}
-      </li>
-
-      <li>
-        Address: {{this.brewery_city}}, {{this.brewery_state}}
-      </li>
-    </ul>
-
-    <p>
-      {{this.info}}
-    </p>
   </div>
 </div>
