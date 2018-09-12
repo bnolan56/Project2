@@ -16,11 +16,8 @@ router.get('/contact', function(req,res,next){
 
 router.get('/search', function(req,res){
     userchoice = "%" + req.query.userInput + "%";
-
-    console.log(req.query.userInput)
     const info = {
         beerName: [],
-        breweryName: []
     }
     knex.select(
         'beer_name',
@@ -28,16 +25,19 @@ router.get('/search', function(req,res){
         'beer_style',
         'id'
     ).from('beers').where('beer_name','like',userchoice).orWhere('beer_style', 'like', userchoice).orWhere('brewery_name', 'like', userchoice).limit(10)
-    .then(function(test){
-        for (var i = 0; i <test.length; i++){
-            info.beerName.push(test[i]);
+    .then(function(results){
+        for (var i = 0; i <results.length; i++){
+            info.beerName.push(results[i]);
         }
         res.render('searchresults', info);
     })
   });
 
 router.get('/brewery/:id', function(req,res){
-    const breweryid = req.body.id
+    const breweryChoice = req.params.id;
+
+   console.log(breweryChoice)
+
       knex.select(
       'brewery_name',
       'brewery_type',
@@ -45,15 +45,20 @@ router.get('/brewery/:id', function(req,res){
       'brewery_state',
       'brewery_pic',
       'brewery_website',
-      'beer_name'
-    ).from('beers')
-      .then(function(test){
-          res.render('brewery', test)
+      'beer_name',
+      'id'
+    ).from('beers').where('id', breweryChoice)
+      .then(function(results){
+        var stringy = JSON.stringify(results);
+        var breweriez = JSON.parse(stringy);
+        var goodtogo = breweriez[0]
+        res.render('brewery', goodtogo)
       })
   });
 
   router.get('/beer/:id', function(req,res){
-      const beerid = req.body.id
+      const beerid = req.params.id
+      console.log(beerid)
     knex.select(
         'beer_name',
         'beer_abv',
@@ -62,9 +67,13 @@ router.get('/brewery/:id', function(req,res){
         'beer_description',
         'beer_logo',
         'brewery_name',
-    ).from('beers')
-    .then(function(test){
-        res.render('beer', test)
+        'id'
+    ).from('beers').where('id',beerid)
+    .then(function(results){
+        var stringy = JSON.stringify(results);
+        var beerz = JSON.parse(stringy);
+        var goodtogo = beerz[0]
+        res.render('beer', goodtogo)
     })
 });
 
