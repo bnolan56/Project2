@@ -19,7 +19,7 @@ router.get('/contact', function(req,res,next){
 router.get('/search', function(req,res){
     userchoice = "%" + req.query.userInput + "%";
     const info = {
-        beerName: [],     
+        beerName: [],
     }
     knex.select(
         'beer_name',
@@ -37,9 +37,9 @@ router.get('/search', function(req,res){
 
 router.get('/brewery/:id', function(req,res){
     const breweryChoice = req.params.id;
-    
+
    console.log(breweryChoice)
-   
+
       knex.select(
       'brewery_name',
       'brewery_type',
