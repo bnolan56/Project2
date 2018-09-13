@@ -35,10 +35,34 @@ router.get('/search', function(req,res){
     })
   });
 
-router.get('/brewery/:id', function(req,res){
-    const breweryChoice = req.params.id;
+  router.get('/db', function(req,res){
+    
+    const info = {
+        beerName: [],
+    }
+    knex.select(
+        'beer_name',
+        'brewery_name',
+        'beer_style',
+        'id'
+    ).from('beers').limit(20)
+    .then(function(results){
+        for (var i = 0; i <results.length; i++){
+           randomSelect =  results[Math.floor(Math.random()*results.length)]
+            info.beerName.push(randomSelect);
+        }
+        
+        res.render('viewdb', info);
+    })
+  });
 
-   console.log(breweryChoice)
+router.get('/brewery/:id', function(req,res){
+    const breweryChoice = '%'+req.params.id+'%';
+     
+    const info = {
+        beerName: [],
+        beerData: []
+    }
 
       knex.select(
       'brewery_name',
@@ -49,12 +73,18 @@ router.get('/brewery/:id', function(req,res){
       'brewery_website',
       'beer_name',
       'id'
-    ).from('beers').where('id', breweryChoice)
+    ).from('beers').where('brewery_name',"like", breweryChoice).limit(12)
       .then(function(results){
+         
         var stringy = JSON.stringify(results);
         var breweriez = JSON.parse(stringy);
-        var goodtogo = breweriez[0]
-        res.render('brewery', goodtogo)
+        var goodtogo = breweriez[0];
+        info.beerData.push(goodtogo);
+        for (var i = 0; i<breweriez.length; i++){
+            var beers = breweriez[i];
+            info.beerName.push(beers);   
+        }
+        res.render('brewery', info)
       })
   });
 
