@@ -1,16 +1,16 @@
 module.exports = {
-    development: {
-        client: 'mysql',
-        connection: {
-            host: 'gtizpe105piw2gfq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-            user: 'jpw5eysx3yl53maa',
-            password: 'eege6xw65ohddjao',
-            database: 'bgoadoggejw67ejp'
-        }
-    },
-    production: {
-        client: 'mysql',
-        connection: process.env.JAWSDB_URL,
-       
-    }
+   development: {
+       client: 'mysql',
+       connection: {
+           host: 'bbj31ma8tye2kagi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+           user: 'hz672535ragvqiem',
+           password: 'utec2uop2kj90ywp',
+           database: 'cy4y8t572n0socmm'
+       }
+   },
+   production: {
+       client: 'mysql',
+       connection: process.env.JAWSDB_URL,
+
+   }
 }
