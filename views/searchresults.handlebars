@@ -1,44 +1,46 @@
-<h4>Here are your results for "{{userInput}}"</h4>
+<div class="uk-section">
+  <h2>Here are your delicious results for "{{userInput}}"</h2>
 
-<table class="uk-table uk-table-striped uk-table-hover">
-  <thead>
-    <tr>
-      <th>Beer</th>
-      <th>Brewery</th>
-      <th>Style</th>
-      <th>ID</th>
-    </tr>
-  </thead>
+  <table class="uk-table uk-table-striped">
+    <thead>
+      <tr>
+        <th>Beer</th>
+        <th>Brewery</th>
+        <th>Style</th>
+        <th>ID</th>
+      </tr>
+    </thead>
 
 
-  <tbody>
+    <tbody>
 
-    {{#each beerName}}
-    <tr>
-      <td><a class="beerClick" href="/beer/{{this.id}}">{{this.beer_name}}</a></td>
-      <td><a class="breweryClick"  href="/brewery/{{this.id}}">{{this.brewery_name}}</a></td>
-      <td>{{this.beer_style}}</td>
-      <td>{{this.id}}</td>
-    </tr>
-    {{/each}}
+      {{#each beerName}}
+      <tr>
+        <td><a class="beerClick" href="/beer/:id">{{this.beer_name}}</a></td>
+        <td><a class="breweryClick" href="/brewery/:id">{{this.brewery_name}}</a></td>
+        <td>{{this.beer_style}}</td>
+        <td>{{this.id}}</td>
+      </tr>
+      {{/each}}
 
-    <!-- <tr>
-      <td>{{this.beer_name}}</td>
-      <td>{{this.brewery_name}}</td>
-      <td>{{this.beer_style}}</td>
-      <td>{{this.id}}</td>
-    </tr> -->
-  </tbody>
-</table>
+      <!-- <tr>
+        <td>{{this.beer_name}}</td>
+        <td>{{this.brewery_name}}</td>
+        <td>{{this.beer_style}}</td>
+        <td>{{this.id}}</td>
+      </tr> -->
+    </tbody>
+  </table>
 
-<ul class="uk-pagination uk-flex-center">
-  <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
-  <li><a href="#">1</a></li>
-  <li class="uk-disabled"><span>...</span></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">6</a></li>
-  <li class="uk-active"><span>7</span></li>
-  <li><a href="#">8</a></li>
-  <li><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
-</ul>
+  <ul class="uk-pagination uk-flex-center">
+    <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
+    <li><a href="#">1</a></li>
+    <li class="uk-disabled"><span>...</span></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li class="uk-active"><span>7</span></li>
+    <li><a href="#">8</a></li>
+    <li><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
+  </ul>
 
+</div>

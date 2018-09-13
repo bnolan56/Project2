@@ -1,38 +1,38 @@
-<!-- TEST LAYOUT OF INDEX TEMPLATE FOR TEST TABLE INFO -->
-<div class="uk-child-width-expand@s" uk-grid>
-  <div class="uk-grid-item-match">
-    <div class="uk-card uk-card-default uk-card-body">
-      <h3>Heading</h3>
-      <img src="{{this.beer_logo}}" alt="Brewery Picture"/>
+<div class="uk-section">
+  <div class="uk-child-width-expand@s" uk-grid>
+    <div class="uk-grid-item-match">
+      <div class="uk-card uk-card-default uk-card-body">
+        <img src="{{this.beer_logo}}" alt="Brewery Picture"/>
+      </div>
     </div>
-  </div>
-  <div>
-    <h3>{{this.beer_name}}</h3>
-    <ul>
-      <li>
-        Brewery: <a class="breweryClick" href="/brewery/{{this.id}}">{{this.brewery_name}}</a>
-      </li>
+    <div>
+      <h3>{{this.beer_name}}</h3>
+      <ul class="uk-list">
+        <li>
+          Brewery: <a class="breweryClick" href="/brewery/:id">{{this.brewery_name}}</a>
+        </li>
 
-      <li>
-        Style: {{this.beer_style}}
-      </li>
+        <li>
+          Style: {{this.beer_style}}
+        </li>
 
-      <li>
-        Description: {{this.beer_description}}
-      </li>
-    </ul>
+        <li>
+          Description: {{this.beer_description}}
+        </li>
+      </ul>
 
-  </div>
+    </div>
 
-  <div>
-    <ul>
-      <li>
-        ABV: {{this.beer_abv}}
-      </li>
+    <div>
+      <ul class="uk-list">
+        <li>
+          ABV: {{this.beer_abv}}
+        </li>
 
-      <li>
-        IBU: {{this.beer_ibu}}
-      </li>
-    </ul>
+        <li>
+          IBU: {{this.beer_ibu}}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
