@@ -16,6 +16,7 @@ router.get('/contact', function(req,res,next){
     res.render('contact');
 });
 
+//Search Route
 router.get('/search', function(req,res){
     userchoice = "%" + req.query.userInput + "%";
     const info = {
@@ -35,6 +36,7 @@ router.get('/search', function(req,res){
     })
   });
 
+  //DB route
   router.get('/db', function(req,res){
     
     const info = {
@@ -45,17 +47,17 @@ router.get('/search', function(req,res){
         'brewery_name',
         'beer_style',
         'id'
-    ).from('beers').limit(20)
+    ).from('beers').limit(50)
     .then(function(results){
         for (var i = 0; i <results.length; i++){
-           randomSelect =  results[Math.floor(Math.random()*results.length)]
-            info.beerName.push(randomSelect);
+            info.beerName.push(results[i]);
         }
-        
         res.render('viewdb', info);
     })
   });
 
+
+  //Brewery Route
 router.get('/brewery/:id', function(req,res){
     const breweryChoice = '%'+req.params.id+'%';
      
@@ -71,6 +73,8 @@ router.get('/brewery/:id', function(req,res){
       'brewery_state',
       'brewery_pic',
       'brewery_website',
+      'beer_style',
+      'beer_logo',
       'beer_name',
       'id'
     ).from('beers').where('brewery_name',"like", breweryChoice).limit(12)
@@ -88,6 +92,7 @@ router.get('/brewery/:id', function(req,res){
       })
   });
 
+  //Beer Route
   router.get('/beer/:id', function(req,res){
       const beerid = req.params.id
       console.log(beerid)
