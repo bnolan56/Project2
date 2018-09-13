@@ -16,6 +16,7 @@ font-family: 'Arvo', serif;
 
 .uk-navbar-nav>li>a {
   font-family: 'Arvo', serif;
+  position: relative;
   color: #323e52;
   text-transform: uppercase;
   transition: .1s ease-in-out;
@@ -26,6 +27,28 @@ font-family: 'Arvo', serif;
   color: #323e52;
   font-weight: bold;
 }
+
+.uk-navbar-nav>li>a:before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  bottom: 28px;
+  left: 12px;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.uk-navbar-nav>li>a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
 
 .uk-navbar-toggle.uk-open, .uk-navbar-toggle:focus, .uk-navbar-toggle:hover {
   color: #323e52;
