@@ -96,6 +96,11 @@ input::placeholder {
   color: #323e52 !important;
 }
 
+.alcohol-stats {
+  font-size: 24px;
+  color: #323e52;
+}
+
 /*** Tables ***/
 
 .uk-table th {
