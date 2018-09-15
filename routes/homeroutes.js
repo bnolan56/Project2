@@ -57,6 +57,79 @@ router.get('/db', function(req,res){
   })
 });
 
+router.get('/db2', function(req,res){
+
+   const info = {
+       beerName: [],
+   }
+   knex.select(
+       'beer_name',
+       'brewery_name',
+       'beer_style',
+       'id'
+   ).from('beers').limit(50).offset(50)
+   .then(function(results){
+       for (var i = 0; i <results.length; i++){
+           info.beerName.push(results[i]);
+       }
+       res.render('viewdb', info);
+   })
+ });
+ router.get('/db3', function(req,res){
+
+   const info = {
+       beerName: [],
+   }
+   knex.select(
+       'beer_name',
+       'brewery_name',
+       'beer_style',
+       'id'
+   ).from('beers').limit(50).offset(100)
+   .then(function(results){
+       for (var i = 0; i <results.length; i++){
+           info.beerName.push(results[i]);
+       }
+       res.render('viewdb', info);
+   })
+ });
+ router.get('/db4', function(req,res){
+
+   const info = {
+       beerName: [],
+   }
+   knex.select(
+       'beer_name',
+       'brewery_name',
+       'beer_style',
+       'id'
+   ).from('beers').limit(50).offset(150)
+   .then(function(results){
+       for (var i = 0; i <results.length; i++){
+           info.beerName.push(results[i]);
+       }
+       res.render('viewdb', info);
+   })
+ });
+ router.get('/db5', function(req,res){
+
+   const info = {
+       beerName: [],
+   }
+   knex.select(
+       'beer_name',
+       'brewery_name',
+       'beer_style',
+       'id'
+   ).from('beers').limit(50).offset(200)
+   .then(function(results){
+       for (var i = 0; i <results.length; i++){
+           info.beerName.push(results[i]);
+       }
+       res.render('viewdb', info);
+   })
+ });
+
 
 //Brewery Route
 router.get('/brewery/:id', function(req,res){
@@ -120,10 +193,10 @@ router.get('/submit', function(req,res){
   res.render('submit');
 });
 
-router.post('/submit'), function(req,res){
-  let beerSubmission = req.body;
-  console.log(beerSubmission);
-  res.send(beerSubmission)
-}
+// router.post('', function(req,res){
+//   var beerSubmission = req.params;
+//   // res.send(beerSubmission);
+//   // res.send('submitted');
+// });
 
 module.exports = router

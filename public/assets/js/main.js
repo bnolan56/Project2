@@ -24,4 +24,27 @@ $(function() {
   //     dataContainer.html(html);
   //   }
   // })
+
+  $("#brewSubmit").on("click", function (e) {
+    e.preventDefault();
+
+    let breweryName = $("#brewName").val().trim();
+    let breweryCity = $("#brewCity").val().trim();
+    let breweryState = $("#brewState").val().trim();
+    let breweryWeb = $("#brewSite").val().trim();
+    let breweryImg = $("#brewPic").val().trim();
+
+    let breweryObj = {
+      name: breweryName,
+      city: breweryCity,
+      state: breweryState,
+      website: breweryWeb,
+      pic: breweryImg
+    }
+
+    console.log(breweryObj)
+
+    $('.formDiv').html('<h3><span uk-icon="icon: check; ratio: 2"></span> Submitted!</h3>'
+    + '<p>Thank you for your submission! Your Brewery has been added to the Foam DB!</p>' + '</div>');
+  });
 });
