@@ -1,0 +1,60 @@
+<div class="uk-section">
+  <h2 class="uk-heading-line">Submit your brewery!</h2>
+
+  <div class="uk-alert-warning" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p><strong>**BETA**</strong> Foam DB User Submission is currently in beta while we work out the kinks. We encourage you to submit any bug you find to us! <br /> Tap 'X' to dismiss this message</p>
+  </div>
+
+  <p class="uk-text-lead">Welcome to our beer submission page. Currently, we only support brewery submission, no beer submission. In the meantime, while we get beer submission up and running submit your breweries as such:</p>
+
+  <ul class="uk-list">
+    <li>1. Input your brewery information</li>
+    <li>2. Add your beer information</li>
+    <li>3. Submit to Foam DB</li>
+  </ul>
+
+  <div class="formDiv">
+    <form action="/submit" method="post">
+      <fieldset class="uk-fieldset">
+        <div class="uk-margin">
+          <div class="uk-inline uk-width-1-1">
+            <a class="uk-form-icon" href="#" uk-icon="icon: pencil"></a>
+            <input id="brewName" class="uk-input" type="text" placeholder="Brewery Name">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <div class="uk-inline uk-width-1-1">
+            <a class="uk-form-icon" href="#" uk-icon="icon: world"></a>
+            <input id="brewSite" class="uk-input" type="text" placeholder="Website (URL)">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <div class="uk-inline uk-width-1-1">
+            <a class="uk-form-icon" href="#" uk-icon="icon: home"></a>
+            <input id="brewCity" class="uk-input" type="text" placeholder="City">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <div class="uk-inline uk-width-1-1">
+            <a class="uk-form-icon" href="#" uk-icon="icon: home"></a>
+            <input id="brewState" class="uk-input" type="text" placeholder="State">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <div class="uk-inline uk-width-1-1">
+            <a class="uk-form-icon" href="#" uk-icon="icon: image"></a>
+            <input id="brewPic" class="uk-input" type="text" placeholder="Picture URL">
+          </div>
+        </div>
+      </fieldset>
+
+      <button id="brewSubmit" type="submit" name="action" class="center uk-button uk-button-primary uk-button-large uk-width-large">Submit Your Brewery</button>
+    </form>
+  </div>
+
+</div>
