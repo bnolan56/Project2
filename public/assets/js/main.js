@@ -25,6 +25,7 @@ $(function() {
   //   }
   // })
 
+  //capture brewery object
   $("#brewSubmit").on("click", function (e) {
     e.preventDefault();
 
@@ -46,5 +47,33 @@ $(function() {
 
     $('.formDiv').html('<h3><span uk-icon="icon: check; ratio: 2"></span> Submitted!</h3>'
     + '<p>Thank you for your submission! Your Brewery has been added to the Foam DB!</p>' + '</div>');
+  });
+
+  // capture beer object
+  $("#beerSubmit").on("click", function (e) {
+    e.preventDefault();
+
+    let beerName = $("#beerName").val().trim();
+    let breweryName = $("#brewName").val().trim();
+    let beerABV = $("#beerABV").val().trim();
+    let beerIBU = $("#beerIBU").val().trim();
+    let beerImg = $("#beerStyle").val().trim();
+    let beerDescrip = $("#beerDescrip").val().trim();
+    let beerImg = $("#beerImg").val().trim();
+
+    let beerObj = {
+      name: beerName,
+      breweryName: breweryName,
+      abv: beerABV,
+      ibu: beerIBU,
+      description: beerDescrip,
+      style: beerStyle,
+      pic: beerImg
+    }
+
+    console.log(beerObj)
+
+    $('.formDiv2').html('<h3><span uk-icon="icon: check; ratio: 2"></span> Submitted!</h3>'
+    + '<p>Thank you for your submission! Your Beer has been added to the Foam DB!</p>' + '</div>');
   });
 });
