@@ -3,7 +3,7 @@ Foam DB
 
 Foam is a beer database to show thousands of beer styles, beer names and breweries for your informational needs.
 ## Getting Started
-https://warm-reaches-87017.herokuapp.com/
+https://fast-plateau-59007.herokuapp.com/
 
 ## Screen Shots
 
