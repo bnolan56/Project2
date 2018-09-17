@@ -193,10 +193,55 @@ router.get('/submit', function(req,res){
   res.render('submit');
 });
 
-// router.post('', function(req,res){
-//   var beerSubmission = req.params;
-//   // res.send(beerSubmission);
-//   // res.send('submitted');
-// });
+//Brewery post route
+router.get('/submitbrewery', function(req,res){
+    let beerdata = req.query.breweryOBj;
+    // var test = JSON.stringify(beerdata)
+    let submitData = beerdata.split(",");
+    let breweryName = submitData[0];
+    let breweryWebsite = submitData[3];
+    let breweryCity = submitData[1];
+    let breweryState = submitData[2];
+    let breweryPic = submitData[4]
+    knex('beers').insert([
+    {brewery_name: breweryName,
+    brewery_website: breweryWebsite,
+    brewery_city: breweryCity,
+    brewery_state: breweryState,
+    brewery_state: breweryState,
+    brewery_pic: breweryPic}
+    ]).then(function(update){
+    console.log(update);
+    })
+    res.redirect('submit');
+    });
+    
 
+//Beer post route
+router.get('/submitbeer', function(req,res){
+    let beerdata = req.query.beerOBj;
+    let submitData = beerdata.split(",");
+    console.log(beerdata)
+    let beerName = submitData[0];
+    let breweryName = submitData[1];
+    let beerStyle = submitData[4];
+    let beerABV = submitData[2];
+    let beerIBU = submitData[3];
+    let beerLogo = submitData[6];
+    let beerDescription = submitData[5];
+    knex('beers').insert([
+    {beer_name: beerName,
+    brewery_name: breweryName,
+    beer_style: beerStyle,
+    beer_abv: beerABV,
+    beer_ibu: beerIBU,
+    beer_logo: beerLogo,
+    beer_description: beerDescription}
+    ]).then(function(update){
+    console.log(update)
+    })
+    res.redirect('submit');
+    });
+    
+    
 module.exports = router

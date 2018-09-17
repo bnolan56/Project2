@@ -28,49 +28,37 @@ $(function() {
   //capture brewery object
   $("#brewSubmit").on("click", function (e) {
     e.preventDefault();
-
+    
     let breweryName = $("#brewName").val().trim();
     let breweryCity = $("#brewCity").val().trim();
     let breweryState = $("#brewState").val().trim();
     let breweryWeb = $("#brewSite").val().trim();
     let breweryImg = $("#brewPic").val().trim();
-
-    let breweryObj = {
-      name: breweryName,
-      city: breweryCity,
-      state: breweryState,
-      website: breweryWeb,
-      pic: breweryImg
-    }
-
+    
+    let breweryObj = [breweryName, breweryCity, breweryState, breweryWeb, breweryImg]
+    window.location.href = "/submitbrewery?breweryOBj=" + encodeURI(breweryObj);
     console.log(breweryObj)
-
+    
     $('.formDiv').html('<h3><span uk-icon="icon: check; ratio: 2"></span> Submitted!</h3>'
     + '<p>Thank you for your submission! Your Brewery has been added to the Foam DB!</p>' + '</div>');
-  });
+    });
+    
+    
 
   // capture beer object
   $("#beerSubmit").on("click", function (e) {
     e.preventDefault();
 
     let beerName = $("#beerName").val().trim();
-    let breweryName = $("#brewName").val().trim();
+    let breweryName = $("#brewName1").val().trim();
     let beerABV = $("#beerABV").val().trim();
     let beerIBU = $("#beerIBU").val().trim();
-    let beerImg = $("#beerStyle").val().trim();
+    let beerStyle = $("#beerStyle").val().trim();
     let beerDescrip = $("#beerDescrip").val().trim();
     let beerImg = $("#beerImg").val().trim();
 
-    let beerObj = {
-      name: beerName,
-      breweryName: breweryName,
-      abv: beerABV,
-      ibu: beerIBU,
-      description: beerDescrip,
-      style: beerStyle,
-      pic: beerImg
-    }
-
+    let beerObj = [beerName, breweryName, beerABV, beerIBU, beerStyle, beerDescrip, beerImg]
+    window.location.href = "/submitbeer?beerOBj=" + encodeURI(beerObj);
     console.log(beerObj)
 
     $('.formDiv2').html('<h3><span uk-icon="icon: check; ratio: 2"></span> Submitted!</h3>'
